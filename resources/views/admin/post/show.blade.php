@@ -42,7 +42,7 @@
                                 <table class="table table-hover text-nowrap">
                                     <tbody>
                                     <tr>
-                                        <td>Id</td>
+                                        <td>ID</td>
                                         <td>{{$post->id}}</td>
                                     </tr>
                                     <tr>
