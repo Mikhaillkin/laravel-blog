@@ -54,6 +54,10 @@
                                         <td>{{$post->content}}</td>
                                     </tr>
                                     <tr>
+                                        <td>Категория(foreign pk)</td>
+                                        <td>{{$post->category_id}}</td>
+                                    </tr>
+                                    <tr>
                                         <td>preview_image</td>
                                         <td>{{$post->preview_image}}</td>
                                     </tr>
