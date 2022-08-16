@@ -49,6 +49,18 @@
                                         <td>Название</td>
                                         <td>{{$post->title}}</td>
                                     </tr>
+                                    <tr>
+                                        <td>Описаие</td>
+                                        <td>{{$post->content}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>preview_image</td>
+                                        <td>{{$post->preview_image}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>main_image</td>
+                                        <td>{{$post->main_image}}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
