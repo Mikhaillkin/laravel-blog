@@ -12,11 +12,20 @@ class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
-        $data = $request->validated();
-        $data['preview_image'] = Storage::put('/images', $data['preview_image']);
-        $data['main_image'] = Storage::put('/images', $data['main_image']);
-        Post::firstOrcreate($data);
+        try {
+            $data = $request->validated();
+            $tagIds = $data['tag_ids'];
+            unset($data['tag_ids']);
 
-         return redirect()->route('admin.post.index');
+
+            $data['preview_image'] = Storage::put('/images', $data['preview_image']);
+            $data['main_image'] = Storage::put('/images', $data['main_image']);
+            $post = Post::firstOrcreate($data);
+            $post->tags()->attach($tagIds);
+
+            return redirect()->route('admin.post.index');
+        } catch (\Exception $exception) {
+            abort(404);
+        }
     }
 }
