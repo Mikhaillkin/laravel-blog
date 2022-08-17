@@ -46,20 +46,18 @@ class PostService
                 $tagIds = $data['tag_ids'];
                 unset($data['tag_ids']);
             }
-            if (isset($data['preview_image'])) {
 
+            if (isset($data['preview_image'])) {
                 $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
             }
-            if (isset($data['main_image'])) {
 
+            if (isset($data['main_image'])) {
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             }
-            $post->update($data);
-            if (!empty($tagIds)) {
 
+            $post->update($data);
+            if (isset($tagIds)) {
                 $post->tags()->sync($tagIds);
-            }else{
-                $post->tags()->detach();
             }
             DB::commit();
         } catch (Exception $exception) {
