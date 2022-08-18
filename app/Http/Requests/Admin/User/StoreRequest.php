@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string',
+            'role' => 'required|integer'
         ];
     }
     public function messages()
@@ -40,6 +41,8 @@ class StoreRequest extends FormRequest
             'email.unique' => 'Пользователь с таким email уже существует',
             'password.required' => 'Это поле необходимо для заполнения',
             'password.string' => 'Пароль должен быть строкой',
+            'role.required' => 'Это поле необходимо для заполнения',
+            'role.string' => 'Почта должна быть строкой',
         ];
     }
 }
