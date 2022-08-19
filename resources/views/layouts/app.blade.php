@@ -53,18 +53,17 @@
                                 <a class="nav-link" href="{{ route('register') }}">Регистрация</a>
                             </li>
                         @endif
-                    @else
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf
-                            <input class="btn btn-outline-primary" type="submit" value="Выйти">
-                        </form>
+                        @else
+                            <form action="{{route('logout')}}" method="post">
+                                @csrf
+                                <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                            </form>
+                    @endguest
+                </ul>
             </div>
-            </li>
-            @endguest
-            </ul>
         </div>
+    </nav>
 </div>
-</nav>
 
 <main class="py-4">
     @yield('content')
