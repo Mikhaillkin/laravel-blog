@@ -10,11 +10,7 @@ class IndexController extends Controller
 
     public function __invoke()
     {
-        $posts = Post::paginate(6);
-        $randomPosts = Post::get()->random(4);
-        $popularPosts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
-//        dd($likedPosts);
-        return view('main.index',compact('posts', 'randomPosts', 'popularPosts'));
+        return redirect()->route('post.index');
     }
 
 }
