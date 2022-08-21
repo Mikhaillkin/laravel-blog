@@ -7,7 +7,8 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Главная</h1>
+                        <h1 class="m-0">Личный кабинет {{ $current_auth_user->name }}</h1>
+                        <h1 class="m-0">{{ $current_auth_user->email }}</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -28,14 +29,14 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>1</h3>
+{{--                                <h3>0</h3>--}}
 
                                 <p>Понравившиеся посты</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-heart"></i>
                             </div>
-                            <a href="{{route('admin.user.index')}}" class="small-box-footer">Подробнее<i
+                            <a href="{{route('personal.liked.index')}}" class="small-box-footer">Подробнее<i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -44,14 +45,14 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>1<sup style="font-size: 20px"></sup></h3>
+{{--                                <h3>0<sup style="font-size: 20px"></sup></h3>--}}
 
                                 <p>Комментарии</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-comment"></i>
                             </div>
-                            <a href="{{route('admin.post.index')}}" class="small-box-footer">Подробнее<i
+                            <a href="{{route('personal.comment.index')}}" class="small-box-footer">Подробнее<i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

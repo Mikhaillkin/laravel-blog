@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edica :: Home</title>
-    <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">--}}
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <!-- Font Awesome -->
@@ -43,6 +43,22 @@
                             <a class="nav-link" href="{{route('personal.main.index')}}">Войти</a>
                         @endguest
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category.index') }}">
+                            Категории
+                        </a>
+                    </li>
+
+                    @auth()
+                    <li class="nav-item">
+                        <form action="{{route('logout')}}" method="post" >
+                            @csrf
+                            <input class="nav-link border-0 bg-transparent" type="submit" value="Выйти">
+                        </form>
+                    </li>
+                    @endauth
+
                 </ul>
 
             </div>
